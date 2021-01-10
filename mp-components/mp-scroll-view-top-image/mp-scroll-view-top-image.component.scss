@@ -1,0 +1,25 @@
+.mp-scroll-view-top-image{
+
+}
+
+.top-scroll-view-wrapper{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 10px;
+    z-index: -1;
+    width: 100%
+
+}
+
+.top-image{
+    width: 300px; margin: 20px auto; display: block
+}
+
+.bottom-scroll-wrapper{
+    margin: 30px
+}
+
+.scroll-item{
+    font-size: 1.2em;
+    border-bottom: 1px solid gray;
+}

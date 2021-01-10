@@ -1,0 +1,91 @@
+<div class="mp-slideshow-wrapper" #mpSlideshowOuter>
+    <div class="items-wrapper"  #mpSlideshow  
+        (touchstart) = "touchStart($event)" (touchend)="touchEnd()" (touchmove) = "touchMove($event)"
+        [@moveSlideTouch]="{value : animationState, params : {xPos : getAnimationXPos(), 
+                            touchX : translateXValue, duration : slideshowOptions.slideVisuals.animationDuration
+                        }}" 
+        (@moveSlideTouch.done)="animationState = 'onMove'"
+        [ngStyle]="{'width' : slideWidth + 'px'}"
+    >
+
+        <ng-content></ng-content>
+
+    </div>
+
+    
+    <div *ngIf="showArrows()" [ngClass]="arrowClass + ' mp-arrow-right'" (click)="arrowRightClick($event)">
+        <svg *ngIf="slideshowOptions.slideVisuals.arrows==='ARROW1'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+            width = "30px" height = "30px"
+        >
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+        </svg>
+
+        <svg *ngIf="slideshowOptions.slideVisuals.arrows==='ARROW2'"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+            width = "40px" height = "40px">
+            <path d="M10 17l5-5-5-5v10z"/>
+            <path d="M0 24V0h24v24H0z" fill="none"/>
+        </svg>
+
+    </div>
+
+    <div *ngIf="showArrows()"  [ngClass]="arrowClass + ' mp-arrow-left'" (click)="arrowLeftClick($event)">
+        <svg *ngIf="slideshowOptions.slideVisuals.arrows==='ARROW1'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+            width = "30px" height = "30px">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+
+        <svg *ngIf="slideshowOptions.slideVisuals.arrows==='ARROW2'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+            width = "40px" height = "40px"  
+        >
+            <path d="M14 7l-5 5 5 5V7z"/>
+            <path d="M24 0v24H0V0h24z" fill="none"/>
+        </svg>
+
+    </div>
+
+
+    
+    
+    <div [ngClass]="'mp-round-indicator ' +this.indicatorClass" *ngIf="slideshowOptions.slideVisuals.indicators === 'ROUND'">
+        <div class="mp-round-item" [ngClass]="indicatorClass" *ngFor="let indi of items; index as i" >
+            <div class="mp-round-inner-item"
+                [@moveRoundIndicator]="{value : this.currentPos, params : {bColor : this.setRoundIndicatorOpacity(i)}}"
+            >
+                
+            </div>
+        </div>
+    </div>
+    
+    <div [ngClass]="'mp-indicator-line ' + this.indicatorClass" [ngStyle]="{'width' : indicatorLineWidthPercent + '%'}" 
+
+        *ngIf="slideshowOptions.slideVisuals.indicators === 'LINE' || 'LINE2'">
+        <div class="mp-line-item" 
+            [@moveLineIndicator]="{value : animationState, params : {xPos : indicatorLineX, duration : slideshowOptions.slideVisuals.animationDuration}}" 
+            [ngStyle]="{'width' : 100/(items.length) + '%'}"
+        >
+    
+        </div>
+    </div>
+
+    <div [ngClass]="'mp-indicator-progressbar ' + this.indicatorClass" 
+        *ngIf="this.slideshowOptions.slideVisuals.indicators === 'PROGRESSBAR' || 'PROGRESSBAR2'"
+        [ngStyle]="{'width' : indicatorLineWidthPercent + '%'}" 
+    >
+        <div class="mp-inner-progressbar"
+            [@moveProgressIndicator]="{value : animationState, params:{width : indicatorBarWidth}}"
+            [ngStyle]="{'width' : 100/(items.length) + '%'}"
+        >
+            
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="indicator-left">
+    <
+</div>
+<div class="indicator-right">
+    >
+</div> -->

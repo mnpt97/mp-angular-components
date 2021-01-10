@@ -1,0 +1,50 @@
+<div class="mp-admin-edit-wrapper">
+    <div class="edit-add-button">
+        <mat-icon [matMenuTriggerFor] = "addEditType">add</mat-icon>
+    </div>
+
+    <mat-menu #addEditType = "matMenu">
+        <mat-option></mat-option>
+    </mat-menu>
+
+    <div class="edit-page-wrapper">
+
+        <div class="edit-page-options desktop">
+            <div class="option-row">
+                <button mat-flat-button class="option-element template-select" [matMenuTriggerFor] = "templateSelector">{{actTemplate}}<mat-icon>keyboard_arrow_down</mat-icon></button>
+                <mat-button-toggle-group #group="matButtonToggleGroup" multiple>
+                    <mat-button-toggle value="bold" aria-label="Text Bold" (change)="setFontStyle($event.value)">
+                      <mat-icon>format_bold</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="italic" aria-label="Text Italic" (change)="setFontStyle($event.value)">
+                      <mat-icon>format_italic</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="underline" aria-label="Text Underline" (change)="setFontStyle($event.value)">
+                      <mat-icon>format_underline</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="list_bulleted" aria-label="Bullet List" (change)="setFontStyle($event.value)">
+                      <mat-icon>format_list_bulleted</mat-icon>
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+
+                <button class = "option-element" (click)="setFontStyle('link')"><mat-icon>link</mat-icon></button>
+                <label class="option-element">
+                    <input type="file" accept="image/*" (change)="handleImageUpload($event.target.files)" />
+                    <mat-icon>add_photo_alternate</mat-icon>
+                </label>
+                
+            </div>
+        </div>
+
+        <mat-menu #templateSelector = "matMenu">
+            <mat-option *ngFor="let temp of textTemplates"><div [ngStyle]="temp.style"  (click)="selectTemplate(temp)">{{temp.displayName}}</div></mat-option>
+        </mat-menu>
+        <div class="edit-input" contenteditable="true" #editContent>
+
+        </div>
+        <button (click)="saveEditContent()">Save</button>
+
+    </div>
+
+
+</div>

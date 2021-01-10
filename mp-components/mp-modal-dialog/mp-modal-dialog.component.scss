@@ -1,0 +1,52 @@
+.mp-modal-dialog-wrapper{
+    position: fixed; display: none; width: 100%; height: 120%; top: 0; overflow: hidden; z-index: 20;
+    background-color: rgba(255,255,255, 0.7);
+}
+.open-button{
+    position:absolute; top: 0
+}
+
+.mp-modal-dialog-container{
+    position: fixed; bottom: 0;  background-color: white; z-index: 21;
+    opacity: 1; border-top-left-radius: 30px; border-top-right-radius: 30px; box-shadow: 0px -1px 10px rgba(70,70,70,0.8);
+}
+.mp-modal-dialog-container.large{
+    width: 70%; left: 15%
+}
+.mp-modal-dialog-container.small{
+    width: 100%
+}
+.mp-modal-header.mouse{
+    height: 40px; width: 100%; display: flex; align-items: center; justify-content: flex-end;
+}
+.mp-modal-header.touch{
+    height: 20px; width: 100%; display: flex; justify-content: center; align-items: center;
+}
+.mp-modal-top-bar{
+    width: 60px; height: 3px; border-radius: 2px; background-color: grey;
+}
+.mp-modal-content{
+    position: absolute; bottom: 5%; overflow-y: scroll; 
+}
+.mp-modal-content.touch{
+    top: 20px; width: auto; margin: 20px
+}
+.mp-modal-content.mouse{
+    top: 40px;  padding: 30px; left: 50%; width: 80%; transform: translateX(-50%);
+}
+.mp-modal-close-wrapper{
+    margin: 20px 15px 0 0
+}
+
+.close-icon{
+    color: grey; cursor: pointer;
+}
+.close-icon:hover{
+    color: black
+}
+
+@media only screen and (min-width: 700px){
+    img{
+        max-width: 400px !important
+    }
+}

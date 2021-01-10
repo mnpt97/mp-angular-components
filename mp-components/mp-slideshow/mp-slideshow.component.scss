@@ -1,0 +1,200 @@
+
+
+$mp-background-color : #eeeeee;
+$mp-arrow-color : #233334;
+$mp-arrow-hover-color : #000000;
+$mp-indicator-color : #000000;
+$mp-indicator-color-soft: #aaaaaa;
+
+
+
+.mp-slideshow-wrapper{
+   width : 100%;
+    overflow: hidden;
+    //display: block;
+    padding-top: 20px;
+    position: relative;
+}
+
+.items-wrapper{
+    height: 100%;
+    //width: 3000px;
+    position: relative;
+    
+}
+
+.mp-slideshow::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+
+
+.mp-slide-button{
+    width: 30px; height: 30px; position: absolute; 
+    border-radius: 15px; z-index: 5; transform: translateY(-50%);
+}
+
+.mp-slide-button:hover{
+    cursor: pointer;
+}
+.mp-slide-button:hover > svg{
+    fill : red
+}
+
+.mp-left{
+    left: 5px; 
+}
+
+.mp-right{
+    right: 5px
+}
+
+// #################################################################
+// ############# - indicators start - ##############################
+
+
+
+.mp-round-indicator{
+    height: 30px; width: 100%;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.mp-round-indicator.mp-indicator-round1{
+
+    .mp-round-item{
+        margin: 0 10px; width: 16px; height: 16px;
+        border: 2px solid $mp-indicator-color; border-radius: 10px;
+        position: relative;
+        
+        .mp-round-inner-item{
+            position: absolute; top: 2px; left: 2px; 
+            width: 12px; height: 12px; border-radius: 6px;
+            
+
+        }
+    }
+}
+
+
+.mp-indicator-line{
+    margin: 10px auto 0 auto; 
+    position: relative;
+}
+
+.mp-indicator-line.mp-indicator-line1{
+    border-top: 1.5px solid $mp-indicator-color; 
+    height: 3px;
+    .mp-line-item{
+        position: absolute; left: 0; 
+        height: 3px; top: 0; 
+        background-color: $mp-indicator-color;
+    }
+}
+
+.mp-indicator-line.mp-indicator-line2{
+   background-color: $mp-indicator-color-soft;
+   height : 3px;
+    .mp-line-item{
+        position: absolute; left: 0; 
+        height: 3px; top: 0; 
+        background-color: $mp-indicator-color;
+    }
+}
+
+.mp-indicator-line.mp-indicator-line3{
+    background-color: $mp-indicator-color-soft;
+    height : 2px;
+     .mp-line-item{
+         position: absolute; left: 0; transform: translateX(50%); 
+         height: 8px; top: 0px; width: 8px; border-radius: 4px; 
+         background-color: $mp-indicator-color;
+     }
+ }
+
+.mp-indicator-progressbar{
+    margin: 10px auto; position: relative;
+}
+
+.mp-indicator-progressbar.mp-indicator-progress1{
+    border: $mp-indicator-color solid 2px; 
+    height : 12px; border-radius: 9px; padding: 2px;
+    .mp-inner-progressbar{
+        height: 12px; border-radius: 8px;
+        background-color: $mp-indicator-color;
+    }
+}
+
+.mp-indicator-progressbar.mp-indicator-progress2{
+    background-color: $mp-indicator-color-soft;
+    height : 4px; 
+    .mp-inner-progressbar{
+        height: 4px;
+        background-color: $mp-indicator-color;
+    }
+}
+
+
+
+// ############# - indicators end - ################################ 
+// #################################################################
+
+// #################################################################
+// ############# - arrows start - ################################## 
+
+
+.mp-arrow-panel{
+    height : 90%; width: 50px; position: absolute; top: 50%;
+    transform: translateY(-50%);
+    transition: 400ms;
+    
+}
+
+.mp-arrow-panel:hover{
+   backdrop-filter: blur(5px);
+   -webkit-backdrop-filter: blur(5px);
+}
+
+.mp-arrow-panel.mp-arrow-right{
+    right: 0; 
+}
+
+.mp-arrow-panel > svg{
+    position: absolute;
+    top: 50%; 
+    left: 50%; transform: translate3d(-50%, -50%, 0);
+    mix-blend-mode: difference;
+    fill: $mp-arrow-color;
+}
+
+// arrow = "MIDDLE"
+
+.mp-arrow-middle{
+    position: absolute; 
+    transform: translate3d(0,-50%, 0); top: 50%;
+}
+
+.mp-arrow-middle > svg{
+    fill: $mp-arrow-color;
+    transition: 300ms;
+}
+
+.mp-arrow-middle.mp-arrow-right{
+    right: 5px;
+}
+.mp-arrow-middle.mp-arrow-left{
+    left: 5px
+}
+
+.mp-arrow-middle:hover{
+    svg{
+        fill: $mp-arrow-hover-color;
+
+    }
+    cursor: pointer;
+    
+}
+
+// ############# - arrows end - #################################### 
+// #################################################################
