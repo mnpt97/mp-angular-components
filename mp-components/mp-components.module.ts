@@ -16,6 +16,9 @@ import { MpParallaxComponent } from               './mp-parallax/mp-parallax.com
 import { MpParallaxItemComponent } from           './mp-parallax/mp-parallax-item/mp-parallax-item.component';
 import { MpSlideshowComponent } from              './mp-slideshow/mp-slideshow.component'; 
 import { MpScrollViewTopImageComponent } from     './mp-scroll-view-top-image/mp-scroll-view-top-image.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MpMaterialModule } from './mp-material/mp-material.module'
 
 
 const MpComponents = [
@@ -30,7 +33,10 @@ const MpComponents = [
     MpComponents
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MpMaterialModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers : [
     ScreenPropertiesService, MpModalDialogService, MpAdminComponentService
