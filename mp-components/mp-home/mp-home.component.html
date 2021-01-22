@@ -4,8 +4,15 @@
         
     </div>
 
+
+
     <mp-slideshow class="my-slide">
             <img class = "slide-img" src="/assets/mp-assets/mp-images/flatiron.jpg" alt="" srcset="" #mpslideitem>
+
+            <div class="slide-img" #mpslideitem>
+                <h2>header of slide</h2>
+                <p>some content of the slide</p>
+            </div>
 
             <img class = "slide-img" src="/assets/mp-assets/mp-images/alps1.jpg" alt="" srcset="" #mpslideitem>
 
@@ -14,6 +21,11 @@
             <img class = "slide-img" src="/assets/mp-assets/mp-images/building_facet1.jpg" alt="" srcset="" #mpslideitem>
 
     </mp-slideshow>
+
+    <mp-parallax-item class="parallax-item" imgSrc="/assets/mp-assets/mp-images/alps1.jpg">
+        <h2>A Header</h2>
+        <p>Some text</p>
+    </mp-parallax-item>
 
     <mp-scroll-view-top-image>
 

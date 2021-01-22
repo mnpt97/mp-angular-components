@@ -1,0 +1,8 @@
+.mp-parallax-item-wrapper{
+    overflow: hidden; position: relative;
+    width : 100%; height: 500px;
+}
+.parallax-img{
+    display: block; position: absolute; width: 120%; z-index: -1;
+    transform: translate3d(-50%,0,0 ); top: 0; left: 50%
+} 

@@ -73,9 +73,9 @@ export class MpSlideshowComponent implements OnInit {
   @Input() slideshowOptions : MpSlideshowOptions = {
     slideType : "END",
     slideVisuals : {
-      slidePadding : 0,
+      slidePadding : 40,
       animationDuration : 400,
-      indicators : 'ROUND',
+      indicators : 'LINE2',
       
       arrows : "ARROW1",
       arrowPosition : "MIDDLE"
@@ -164,6 +164,8 @@ export class MpSlideshowComponent implements OnInit {
     this.setArrowProperties();
     this.setIndicatorProperties();
     this.slideScrollTop = this.outerElem.nativeElement.offsetTop;
+    console.log(this.items);
+    
   }
 
 

@@ -12,10 +12,9 @@ import { MpRouterContentComponent } from          './mp-router-content/mp-router
 import { MpModalDialogComponent } from            './mp-modal-dialog/mp-modal-dialog.component';
 import { MpAdminEditComponent } from              './mp-admin/mp-admin-edit/mp-admin-edit.component';
 import { MpAdminComponentWrapperComponent } from  './mp-admin/mp-admin-component-wrapper/mp-admin-component-wrapper.component';
-import { MpParallaxComponent } from               './mp-parallax/mp-parallax.component'
-import { MpParallaxItemComponent } from           './mp-parallax/mp-parallax-item/mp-parallax-item.component';
 import { MpSlideshowComponent } from              './mp-slideshow/mp-slideshow.component'; 
 import { MpScrollViewTopImageComponent } from     './mp-scroll-view-top-image/mp-scroll-view-top-image.component';
+import { MpParallaxItemComponent } from            './mp-parallax-item/mp-parallax-item.component'
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MpMaterialModule } from './mp-material/mp-material.module'
@@ -24,7 +23,7 @@ import { MpMaterialModule } from './mp-material/mp-material.module'
 const MpComponents = [
   MpHomeComponent, MpMenuHeaderComponent, MpRouterContentComponent, 
   MpModalDialogComponent, MpAdminEditComponent, MpAdminComponentWrapperComponent, 
-  MpParallaxComponent, MpParallaxItemComponent, MpSlideshowComponent, 
+  MpSlideshowComponent, MpParallaxItemComponent,
   MpScrollViewTopImageComponent
 ]
 
