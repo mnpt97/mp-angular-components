@@ -4,8 +4,9 @@
 // @version 0.0.1
 
 
-import { Component, OnInit, QueryList, ContentChildren, ElementRef, HostListener, ViewChild, Input, Renderer2, ViewChildren, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, QueryList, ContentChildren, ElementRef, HostListener, ViewChild, Input, Renderer2, ViewChildren, ComponentFactoryResolver, SimpleChanges } from '@angular/core';
 import { trigger, style, state, transition, animate } from '@angular/animations';
+import { MpSlideshowItemDirective } from './mp-slideshow-item.directive';
 
 @Component({
   selector: 'mp-slideshow',
@@ -66,14 +67,14 @@ import { trigger, style, state, transition, animate } from '@angular/animations'
 })
 export class MpSlideshowComponent implements OnInit {
 
-  @ContentChildren('mpslideitem') items : QueryList<any>;
+  @ContentChildren(MpSlideshowItemDirective) items : QueryList<any>
   @ViewChild('mpSlideshow') elem : ElementRef
   @ViewChild('mpSlideshowOuter') outerElem : ElementRef
 
   @Input() slideshowOptions : MpSlideshowOptions = {
     slideType : "END",
     slideVisuals : {
-      slidePadding : 40,
+      slidePadding : 30,
       animationDuration : 400,
       indicators : 'LINE2',
       
@@ -81,7 +82,7 @@ export class MpSlideshowComponent implements OnInit {
       arrowPosition : "MIDDLE"
 
     },
-    showArrowsOnMobile : false,
+    showArrowsOnMobile : true,
     showSlideableOnScroll : true
   
   }
@@ -167,6 +168,23 @@ export class MpSlideshowComponent implements OnInit {
     console.log(this.items);
     
   }
+
+  ngAfterContentInit(){
+    console.log(this.items);
+    
+  }
+
+  ngOnChanges(changes : SimpleChanges){
+    console.log(changes);
+    
+    if(changes.items){
+      console.log('changes');
+      this.setSlideshowProperties()
+      
+    }
+  }
+
+
 
 
   // touch specific functions 
@@ -287,7 +305,10 @@ export class MpSlideshowComponent implements OnInit {
     this.slideItemWidth = this.outerElem.nativeElement.offsetWidth
     this.arrangeItems()
     this.itemsArranged = true
+    console.log(this.items, this.slideItemWidth);
+    
     this.slideWidth = (this.items.length) * this.slideItemWidth;
+    
     this.slideHeight = this.elem.nativeElement.offsetHeight;
     //this.renderer.setStyle(this.elem.nativeElement, 'transform3d', '(0,0,0')
   }
@@ -297,8 +318,10 @@ export class MpSlideshowComponent implements OnInit {
     let currentLeft : number = 0;
     
     this.items.forEach((it, index : number) =>{
-      this.renderer.setStyle(it.nativeElement, 'margin', this.slideshowOptions.slideVisuals.slidePadding + 'px')
-      this.renderer.setStyle(it.nativeElement, 'width', this.slideItemWidth - (2*this.slideshowOptions.slideVisuals.slidePadding) + 'px')
+      console.log(it);
+      
+      this.renderer.setStyle(it.elem.nativeElement, 'margin', this.slideshowOptions.slideVisuals.slidePadding + 'px')
+      this.renderer.setStyle(it.elem.nativeElement, 'width', this.slideItemWidth - (2*this.slideshowOptions.slideVisuals.slidePadding) + 'px')
     })
   }
 

@@ -1,0 +1,84 @@
+@import "_app-colors";
+
+
+
+
+.menu-link-wrapper{
+    display: flex; justify-content: left; color: $main-blue; 
+    position: relative; flex-direction: column; 
+}
+
+.menu-link-body{
+    display: flex; margin: 0 20px 0 0; justify-content: flex-start;
+    
+}
+
+.menu-link-body.large-screen{
+    padding: 15px; font-size: 1.2rem; 
+}
+.menu-link-body.small-screen{
+    padding: 10px; font-size: 1.2rem;
+}
+
+.navigation-wrapper.large-screen{
+    display: flex; align-items: center; margin: 0 40px 0 0
+}
+.navigation-wrapper.small-screen{
+    display: flex; align-items: flex-start; margin: 0 40px 0 0; flex-direction: column;
+}
+
+.expand-icon-bar{
+    width: 50%; height: 2px; background-color: $main-blue;
+    position: absolute; top: 60% 
+}
+.expand-icon-bar.left{
+    left: 48%; transform: rotate(-45deg);
+    transform-origin: left;
+}
+
+.expand-icon-bar.right{
+    right: 48%; transform: rotate(45deg);
+    transform-origin: right;
+}
+
+.expand-icon{
+    margin: 0 0 0 20px;
+    width: 20px; height: 20px; position: relative;
+}
+
+.expand-icon.small-screen{
+    margin-left: 80px
+}
+
+.expansion-body{
+    overflow: hidden;
+}
+.expansion-body.large-screen{
+    position: absolute; top: 61px;
+    max-height: 0;
+    background-color: $main-white;
+    box-shadow: 0 6px 6px rgba($color: $main-blue, $alpha: 0.16), 0 6px 6px rgba($color: $main-blue, $alpha: 0.23);
+}
+.expansion-body.small-screen{
+    margin-left: 20px;
+}
+
+.menu-link{
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 300ms; min-width: 70px
+}
+
+.menu-link.active-nav{
+    font-weight: bold;
+}
+
+.menu-link:hover{
+    cursor: pointer; font-weight: bold;
+
+
+
+}
+
+div:focus{
+    outline: none;
+}

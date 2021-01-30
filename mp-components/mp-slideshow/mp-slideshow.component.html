@@ -63,7 +63,7 @@
         *ngIf="slideshowOptions.slideVisuals.indicators === 'LINE' || 'LINE2'">
         <div class="mp-line-item" 
             [@moveLineIndicator]="{value : animationState, params : {xPos : indicatorLineX, duration : slideshowOptions.slideVisuals.animationDuration}}" 
-            [ngStyle]="{'width' : 100/(items.length) + '%'}"
+            [ngStyle]="{'width' : 100/(2) + '%'}"
         >
     
         </div>
@@ -75,7 +75,7 @@
     >
         <div class="mp-inner-progressbar"
             [@moveProgressIndicator]="{value : animationState, params:{width : indicatorBarWidth}}"
-            [ngStyle]="{'width' : 100/(items.length) + '%'}"
+            [ngStyle]="{'width' : 100/(2) + '%'}"
         >
             
         </div>

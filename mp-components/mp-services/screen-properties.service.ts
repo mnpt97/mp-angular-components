@@ -8,7 +8,7 @@ import { Subject, BehaviorSubject, Observable} from 'rxjs'
 export class ScreenPropertiesService {
 
   private isMobile = new Subject();
-  private isTouch;
+  private isTouch = ('ontouchstart' in document.documentElement);
   public screenWidth: string;
   private _isSmallScreen: boolean;
   private smallScreen : BehaviorSubject<boolean> = new BehaviorSubject(false)
@@ -20,6 +20,7 @@ export class ScreenPropertiesService {
   private maxHeaderHeight : number = 200;
   private minHeaderHeight : number = 70;
 
+  private screenWidthTypes : BehaviorSubject<'large-screen' | 'medium-screen' | 'small-screen'> = new BehaviorSubject('medium-screen')
 
   private headerHeight : BehaviorSubject<number> = new BehaviorSubject(this.maxHeaderHeight)
 
@@ -85,7 +86,7 @@ export class ScreenPropertiesService {
 
     public checkWidth() {
         let width = window.innerWidth;
-        if (width <= 1200) {
+        if (width <= 1000) {
             this.screenWidth = 'sm';
             this._isSmallScreen = true;
             

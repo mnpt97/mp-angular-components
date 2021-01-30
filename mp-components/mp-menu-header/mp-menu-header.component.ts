@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NavigationItem } from 'src/app/class/global-interfaces'
+import { NavigationItem } from '../mp-interfaces/mp-global-interfaces'
 import { ScreenPropertiesService } from '../mp-services/screen-properties.service'
 import { trigger, state, style, animate, transition, group} from '@angular/animations';
 
@@ -38,34 +38,7 @@ import { trigger, state, style, animate, transition, group} from '@angular/anima
       })), 
       transition('open <=> close', animate('0.25s'))
     ]),
-    trigger('linkExpansionIcon', [
-        state('expandLeft', style({
-          'transform': 'rotate(45deg)',
-          'top' : '25%'
-        })),
-        state('expandRight', style({
-          'transform': 'rotate(-45deg)',
-          'top' : '25%'
-        })),
-        state('notExpand', style({
-
-        })),
-        transition('expandLeft <=> notExpand, expandRight <=> notExpand', animate('0.25s'))
-      ]),trigger('linkExpansionBody', [
-        state('expand', style({
-          'display' : 'block',
-          'height' : 'max-content',
-          'opacity' : '1',
-        })),
-        state('notExpand', style({
-          'display' : 'none',
-          'height' : '0',
-          'opacity' : '0'
-          
-        })),
-        transition('expand <=> notExpand', animate('0ms'))
-      ]
-    ),
+    
     trigger('showHeader', [
       state('hide', style({
         'transform' : 'translateY(-100%'
@@ -94,7 +67,12 @@ export class MpMenuHeaderComponent  implements OnInit {
     private responsive : ScreenPropertiesService
   ) { }
 
-  isSmallScreen : boolean = false;
+  public isSmallScreen : boolean = false;
+  public isTouch : boolean = false;
+
+  public screenTypeClass : 'type-touch' | 'type-mouse';
+  public screenSizeClass : 'large-screen' | 'small-screen'
+
   menuOpenClass : string = 'menuClose';
   screenClass : string = 'desktop'
   menuOpenCloseState : string = 'close'
@@ -150,9 +128,12 @@ export class MpMenuHeaderComponent  implements OnInit {
     this.responsive.getSmallScreen().subscribe((status) =>{
       this.isSmallScreen = status
       this.isSmallScreen ? this.screenClass = 'mobile' : this.screenClass = 'desktop'
+      this.isSmallScreen ? this.screenSizeClass = 'small-screen' : this.screenSizeClass = 'large-screen'
       console.log(this.isSmallScreen, this.screenClass);
       
     })
+    this.isTouch = this.responsive.getIsTouch() 
+    this.isTouch ? this.screenTypeClass = 'type-touch' : this.screenTypeClass = 'type-mouse'
 
     if(this.params.hideHeader){
       this.responsive.getScrollY().subscribe(scrollY =>{
@@ -171,6 +152,14 @@ export class MpMenuHeaderComponent  implements OnInit {
     this.headerHeight = this.responsive.getminHeaderHeight()
     
 
+  }
+
+  public getCloseMenu($event : any){
+    console.log($event);
+    if($event === true){
+      this.onClickHambuger()
+    }
+    
   }
 
 }

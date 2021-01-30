@@ -16,30 +16,9 @@
             <div class="icon-bar" [@hamburguerX]="menuOpenClose ? 'bottomX' : 'hamburguer'"></div>
         </div>
     </div>
-    <div *ngIf = "!isSmallScreen" class="menu-routes-wrapper largeScreen" [ngClass] = "screenClass" >
-        <div *ngFor = "let navItem of navItems"  class="menu-link-wrapper largeScreen" (mouseenter)="navItem.expand = !navItem.expand" (mouseleave)="navItem.expand = !navItem.expand">
-            <div class="menu-link-body largeScreen">
-                <div class="menu-link largeScreen" [routerLink]="navItem.path" [routerLinkActive] = "'active'">{{navItem.displayName}}</div>
-                <div class="expand-icon" *ngIf="navItem.furtherItems !== undefined">
-                    <div class="expand-icon-bar left" [@linkExpansionIcon]="navItem.expand ? 'expandLeft' : 'notExpand'"></div>
-                    <div class="expand-icon-bar right" [@linkExpansionIcon]="navItem.expand ? 'expandRight' : 'notExpand'"></div>
-                </div>
-            </div>
-            
-            <div [@linkExpansionBody]="navItem.expand ? 'expand' : 'notExpand'" class="expansion-body largeScreen" >
-                <div *ngFor = "let navItem of navItem.furtherItems"  class="menu-link-wrapper largeScreen links-secondary">
-                    <div class="menu-link-body largeScreen">
-                        <div class="menu-link largeScreen" [routerLink]="navItem.path" [routerLinkActive] = "'active'">{{navItem.displayName}}</div>
-                        <div class="expand-icon" *ngIf="navItem.furtherItems !== undefined" (mouseover)="navItem.expand = !navItem.expand">
-                            <div class="expand-icon-bar left" [@linkExpansion]="navItem.expand ? 'expandLeft' : 'notExpand'"></div>
-                            <div class="expand-icon-bar right" [@linkExpansion]="navItem.expand ? 'expandRight' : 'notExpand'"></div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+    
+    <mp-header-navigation *ngIf="!this.isSmallScreen" [screenSizeClass]="this.screenSizeClass" [screenTypeClass]="this.screenTypeClass" [navItems]="this.navItems"></mp-header-navigation>
+    
 
 
 
@@ -50,9 +29,11 @@
     [@menuTrigger]="menuOpenClose ? 'open' : 'close'"    
 >
     
-    <div *ngFor = "let navItem of navItems"  class="menu-link-wrapper smallScreen">
+    <mp-header-navigation (closeMenu)="this.getCloseMenu($event)" [screenSizeClass]="this.screenSizeClass" [screenTypeClass]="this.screenTypeClass" [navItems]="this.navItems"></mp-header-navigation>
+
+    <!-- <div *ngFor = "let navItem of navItems"  class="menu-link-wrapper smallScreen" (mouseenter)="(!this.isTouch ? navItem.expand = !navItem.expand : null)" (mouseleave)="(!this.isTouch ? navItem.expand = !navItem.expand : null)">
         <div class="menu-link-body smallScreen">
-            <div class="menu-link smallScreen" [routerLink]="navItem.path" [routerLinkActive] = "'active'">{{navItem.displayName}}</div>
+            <div class="menu-link smallScreen" [routerLink]="navItem.path" [routerLinkActive] = "'active'" (click)="onClickHambuger()">{{navItem.displayName}} </div>
             <div class="expand-icon" *ngIf="navItem.furtherItems !== undefined" (click)="navItem.expand = !navItem.expand">
                 <div class="expand-icon-bar left" [@linkExpansionIcon]="navItem.expand ? 'expandLeft' : 'notExpand'"></div>
                 <div class="expand-icon-bar right" [@linkExpansionIcon]="navItem.expand ? 'expandRight' : 'notExpand'"></div>
@@ -62,15 +43,14 @@
         <div [@linkExpansionBody]="navItem.expand ? 'expand' : 'notExpand'" class="expansion-body">
             <div *ngFor = "let navItem of navItem.furtherItems"  class="menu-link-wrapper smallScreen links-secondary">
                 <div class="menu-link-body smallScreen">
-                    <div class="menu-link smallScreen" [routerLink]="navItem.path" [routerLinkActive] = "'active'">{{navItem.displayName}}</div>
+                    <div class="menu-link smallScreen" [routerLink]="navItem.path" [routerLinkActive] = "'active'" (click)="onClickHambuger()">{{navItem.displayName}}</div>
                     <div class="expand-icon" *ngIf="navItem.furtherItems !== undefined" (click)="navItem.expand = !navItem.expand">
                         <div class="expand-icon-bar left" [@linkExpansion]="navItem.expand ? 'expandLeft' : 'notExpand'"></div>
                         <div class="expand-icon-bar right" [@linkExpansion]="navItem.expand ? 'expandRight' : 'notExpand'"></div>
                     </div>
                 </div>
-                
             </div>
         </div>
-    </div>
+    </div> -->
     
 </div>

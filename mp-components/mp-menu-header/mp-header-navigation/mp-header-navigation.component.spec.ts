@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MpRouterContentComponent } from './mp-router-content.component';
+import { MpHeaderNavigationComponent } from './mp-header-navigation.component';
 
-describe('MpRouterContentComponent', () => {
-  let component: MpRouterContentComponent;
-  let fixture: ComponentFixture<MpRouterContentComponent>;
+describe('MpHeaderNavigationComponent', () => {
+  let component: MpHeaderNavigationComponent;
+  let fixture: ComponentFixture<MpHeaderNavigationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MpRouterContentComponent ]
+      declarations: [ MpHeaderNavigationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MpRouterContentComponent);
+    fixture = TestBed.createComponent(MpHeaderNavigationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,16 +1,153 @@
+
+@import "_app-colors";
+
+// .menu-header-wrapper{
+//     position: fixed; top: 0; left: 0; z-index: 11;
+//     background-color: rgba(255,255,255,0.9);
+    
+//     width: 100%; display: flex; 
+//     align-items: center; 
+// }
+
+// .spacer{
+//     flex: 1
+// }
+
+// .menu-logo{
+//     width: 50px; height: 50px; background-color: aquamarine; margin: 15px
+// }
+
+// .btn {
+//     cursor: pointer;
+    
+//     width: 25px; 
+//     height: 25px;
+//     margin: 15px
+// }
+  
+// .icon-bar {
+//     width: 25px;
+//     height: 3px;
+    
+//     background: black;
+//     margin: 6px 0 ;
+//     position: relative;
+// }
+
+
+
+// .menu-sidenav{
+//     display: block; backdrop-filter: blur(20px); position: fixed;
+//     background-color: rgba(255,255,255,0.5);
+//     top: 70px; right: 0; bottom: 0;  opacity: 0; height: 100%;
+//     transform: translateY(-120%); z-index: 10; width: 100%; padding-top: 20px; overflow: hidden;
+// }
+// .menu-link-wrapper.smallScreen{
+//     width: 80%;
+   
+//     margin: 25px 20px; 
+// }
+
+// .menu-link-body.smallScreen{
+//     font-size: 1.5rem;
+// }
+
+
+
+// .links-secondary.smallScreen{
+//     margin-left: 20px !important
+// }
+// .expansion-body{
+//     overflow: hidden; 
+    
+// }
+// .expansion-body.largeScreen{
+//     position: absolute;
+    
+//     background-color: white
+// }
+
+// .menu-link-body.smallScreen{
+//     display: flex;
+//     justify-content: left;
+//     align-items: center;
+    
+// }
+// .menu-link-body.largeScreen{
+//     display: flex;
+//     justify-content: left;
+//     align-items: center;
+//     margin: 20px;
+
+    
+    
+// }
+
+// div:focus{
+//     outline: none
+// }
+// .menu-link.smallScreen{
+//     min-width: 50%
+// }
+
+// .menu-link{
+//     position: relative;
+// }
+
+// .menu-link-wrapper{
+//     position: relative;
+// }
+// .menu-link-wrapper:after{
+//     content: "";
+//   background: black;
+//   position: absolute;
+//   bottom: 0;
+//   left: 50%; transform : translateX(-50%);
+//   height: 2px;
+//   width: 50%;
+// }
+// .menu-link-wrapper:after:hover{
+//     width: 100%;
+// }
+// .menu-link:hover{
+//     cursor: pointer; 
+// }
+
+// .menu-routes-wrapper.largeScreen{
+//     display: flex; align-items: center; margin: 0 7% 0 0
+// }
+// .expand-icon{
+//     margin: 0 0 0 20px;
+//     width: 20px; height: 20px; position: relative;
+// }
+// .expand-icon-bar{
+//     width: 50%; height: 2px; background-color: black;
+//     position: absolute; top: 52% 
+// }
+// .expand-icon-bar.left{
+//     left: 50%; transform: rotate(-45deg);
+//     transform-origin: left;
+// }
+
+// .expand-icon-bar.right{
+//     right: 50%; transform: rotate(45deg);
+//     transform-origin: right;
+// }
+
 .menu-header-wrapper{
     position: fixed; top: 0; left: 0; z-index: 11;
-    background-color: rgba(255,255,255,0.9);
-    width: 100%; display: flex; 
+    background-color: $main-white;
+    box-shadow: 0 3px 6px rgba($color: $main-blue, $alpha: 0.16), 0 3px 6px rgba($color: $main-blue, $alpha: 0.23);
+    
+    width: 100%; display: flex; height: 70px;
     align-items: center; 
+}
+.menu-logo{
+    width: 50px; height: 50px; background-color: aquamarine; margin: 15px
 }
 
 .spacer{
-    flex: 1
-}
-
-.menu-logo{
-    width: 50px; height: 50px; background-color: aquamarine; margin: 15px
+    flex-grow: 1
 }
 
 .btn {
@@ -20,86 +157,19 @@
     height: 25px;
     margin: 15px
 }
-  
+    
 .icon-bar {
     width: 25px;
     height: 3px;
     
-    background: black;
+    background: $main-blue;
     margin: 6px 0 ;
     position: relative;
 }
 
-
-
 .menu-sidenav{
-    display: block; background-color: rgba(255,255,255,0.9); position: fixed;
+    display: block; backdrop-filter: blur(20px); position: fixed;
+    background-color: rgba(255,255,255,0.5);
     top: 70px; right: 0; bottom: 0;  opacity: 0; height: 100%;
     transform: translateY(-120%); z-index: 10; width: 100%; padding-top: 20px; overflow: hidden;
-}
-.menu-link-wrapper.smallScreen{
-    width: 80%;
-   
-    margin: 7px 20px
-}
-
-
-
-
-.links-secondary.smallScreen{
-    margin-left: 20px !important
-}
-.expansion-body{
-    opacity: 0; display: none
-}
-.expansion-body.largeScreen{
-    position: absolute;
-    opacity: 0; 
-    background-color: white
-}
-
-.menu-link-body.smallScreen{
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    font-size: 1.2em;
-}
-.menu-link-body.largeScreen{
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    font-size: 1.2em;
-    margin: 20px;
-
-    
-    
-}
-.menu-link.smallScreen{
-    min-width: 50%
-}
-
-
-.menu-link:hover{
-    cursor: pointer;
-}
-
-.menu-routes-wrapper.largeScreen{
-    display: flex; align-items: center; margin: 0 7% 0 0
-}
-.expand-icon{
-    margin: 0 20px;
-    width: 20px; height: 20px; position: relative;
-}
-.expand-icon-bar{
-    width: 50%; height: 2px; background-color: black;
-    position: absolute; top: 50% 
-}
-.expand-icon-bar.left{
-    left: 50%; transform: rotate(-45deg);
-    transform-origin: left;
-}
-
-.expand-icon-bar.right{
-    right: 50%; transform: rotate(45deg);
-    transform-origin: right;
 }
