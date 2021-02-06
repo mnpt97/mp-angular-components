@@ -14,7 +14,7 @@ const MaterialComponents = [
   MatSelectModule,
   MatMenuModule,
   MatButtonModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
 ]
 
 

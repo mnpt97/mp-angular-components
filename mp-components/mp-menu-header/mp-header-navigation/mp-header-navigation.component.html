@@ -11,10 +11,11 @@
             </div>
         </div>
         
+        
         <div [@linkExpansionBody]="navItem.expand ? 'expand' : 'notExpand'" [ngClass]="'expansion-body ' + this.screenSizeClass" >
             <div *ngFor="let navItem of navItem.furtherItems"  [ngClass]="'menu-link-wrapper ' + this.screenSizeClass + ' links-secondary'">
                 <div [ngClass]="'menu-link-body ' + this.screenSizeClass">
-                    <div [ngClass]="'menu-link ' + this.screenSizeClass + this.getActiveNav(navItem.path)" [routerLink]="navItem.path" [routerLinkActive] = "'active'" (click)="this.itemClicked()">{{navItem.displayName}}</div>
+                    <div [ngClass]="'menu-link sub-link ' + this.screenSizeClass + this.getActiveNav(navItem.path)" [routerLink]="navItem.path" [routerLinkActive] = "'active'" (click)="this.itemClicked()">{{navItem.displayName}}</div>
                     <div class="expand-icon" *ngIf="navItem.furtherItems !== undefined" (mouseover)="navItem.expand = !navItem.expand">
                         <div class="expand-icon-bar left" [@linkExpansion]="navItem.expand ? 'expandLeft' : 'notExpand'"></div>
                         <div class="expand-icon-bar right" [@linkExpansion]="navItem.expand ? 'expandRight' : 'notExpand'"></div>

@@ -36,7 +36,7 @@ import { trigger, state, style, animate, transition, group} from '@angular/anima
       state('close', style({
 
       })), 
-      transition('open <=> close', animate('0.25s'))
+      transition('open <=> close', animate('350ms'))
     ]),
     
     trigger('showHeader', [

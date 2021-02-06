@@ -1,10 +1,10 @@
 
 
 $mp-background-color : #eeeeee;
-$mp-arrow-color : #233334;
-$mp-arrow-hover-color : #000000;
-$mp-indicator-color : #000000;
-$mp-indicator-color-soft: #aaaaaa;
+$mp-arrow-color : #2F485866;
+$mp-arrow-hover-color : #2F4858;
+$mp-indicator-color : #2F4858;
+$mp-indicator-color-soft: #2F485833;
 
 
 
@@ -96,10 +96,10 @@ $mp-indicator-color-soft: #aaaaaa;
 
 .mp-indicator-line.mp-indicator-line2{
    background-color: $mp-indicator-color-soft;
-   height : 3px;
+   height : 6px;
     .mp-line-item{
         position: absolute; left: 0; 
-        height: 3px; top: 0; 
+        height: 6px; top: 0; 
         background-color: $mp-indicator-color;
     }
 }
