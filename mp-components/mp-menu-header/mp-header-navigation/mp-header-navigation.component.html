@@ -6,8 +6,8 @@
         <div [ngClass]="'menu-link-body ' + this.screenSizeClass">
             <div [ngClass]="'menu-link ' + this.screenSizeClass + this.getActiveNav(navItem.path)" [routerLink]="navItem.path" [routerLinkActive] = "'active'" (click)="this.itemClicked()">{{navItem.displayName}}</div>
             <div [ngClass]="'expand-icon ' + this.screenSizeClass" *ngIf="navItem.furtherItems !== undefined" (click)=" this.screenTypeClass === 'type-touch' ? navItem.expand = !navItem.expand : null">
-                <div class="expand-icon-bar left" [@linkExpansionIcon]="navItem.expand ? 'expandLeft' : 'notExpand'"></div>
-                <div class="expand-icon-bar right" [@linkExpansionIcon]="navItem.expand ? 'expandRight' : 'notExpand'"></div>
+                <div [ngClass]="'expand-icon-bar left ' + this.screenSizeClass" [@linkExpansionIcon]="navItem.expand ? 'expandLeft' : 'notExpand'"></div>
+                <div [ngClass]="'expand-icon-bar right ' + this.screenSizeClass"  [@linkExpansionIcon]="navItem.expand ? 'expandRight' : 'notExpand'"></div>
             </div>
         </div>
         

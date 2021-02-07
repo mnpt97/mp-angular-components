@@ -28,8 +28,15 @@
 }
 
 .expand-icon-bar{
-    width: 50%; height: 2px; background-color: $main-blue;
+    width: 50%; height: 2px; 
     position: absolute; top: 60% 
+}
+
+.expand-icon-bar.large-screen{
+    background-color: $main-white;
+}
+.expand-icon-bar.small-screen{
+    background-color: $main-blue;
 }
 .expand-icon-bar.left{
     left: 48%; transform: rotate(-45deg);
@@ -56,7 +63,7 @@
 .expansion-body.large-screen{
     position: absolute; top: 61px;
     max-height: 0;
-    background-color: $main-white;
+    background-color: $main-blue;
     box-shadow: 0 6px 6px rgba($color: $main-blue, $alpha: 0.16), 0 6px 6px rgba($color: $main-blue, $alpha: 0.23);
 }
 .expansion-body.small-screen{
@@ -67,9 +74,12 @@
     border-bottom: 2px solid transparent;
     transition: border-bottom 300ms; min-width: 70px
 }
+.menu-link.large-screen{
+    color: $main-white
+}
 
 .menu-link.small-screen{
-    
+    color: $main-blue
 }
 
 .menu-link.sub-link.large-screen{

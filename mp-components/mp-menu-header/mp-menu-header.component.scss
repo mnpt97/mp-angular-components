@@ -136,7 +136,7 @@
 
 .menu-header-wrapper{
     position: fixed; top: 0; left: 0; z-index: 11;
-    background-color: $main-white;
+    background-color: $main-blue;
     box-shadow: 0 3px 6px rgba($color: $main-blue, $alpha: 0.16), 0 3px 6px rgba($color: $main-blue, $alpha: 0.23);
     
     width: 100%; display: flex; height: 70px;
@@ -162,7 +162,7 @@
     width: 25px;
     height: 3px;
     
-    background: $main-blue;
+    background: $main-white;
     margin: 6px 0 ;
     position: relative;
 }
