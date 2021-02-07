@@ -74,12 +74,12 @@ export class MpSlideshowComponent implements OnInit {
   @Input() slideshowOptions : MpSlideshowOptions = {
     slideType : "END",
     slideVisuals : {
-      slidePadding : 30,
+      slidePadding : 25,
       animationDuration : 400,
       indicators : 'LINE2',
       
       arrows : "ARROW1",
-      arrowPosition : "MIDDLE"
+      arrowPosition : "TOP"
 
     },
     showArrowsOnMobile : true,
@@ -328,8 +328,7 @@ export class MpSlideshowComponent implements OnInit {
   private setArrowProperties(){
     switch(this.slideshowOptions.slideVisuals.arrowPosition){
       case "TOP":
-        this.arrowTopOrBottom = "top"
-        this.arrowPosY = "30px"
+        this.arrowClass = "mp-arrow-top"
         //this.renderer.setStyle(this.elem.nativeElement, 'padding-top', '20px')
         break;
       case "BOTTOM":

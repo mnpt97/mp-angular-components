@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { trigger, state, style, animate, transition, group} from '@angular/animations';
 import { ScreenPropertiesService } from '../mp-services/screen-properties.service';
@@ -59,6 +59,8 @@ import { MpModalDialogService } from './mp-modal-dialog.service';
 })
 export class MpModalDialogComponent implements OnInit {
 
+  @ViewChild('mpModalContent') modalContent : ElementRef<any>;
+
   contentOpen : 'close' | 'onClose' | 'open' | 'none' = 'close';
   wrapperOpen : 'onOpen' | 'onClose' | 'open' | 'close' = 'close';
   touchTranslate : number = 0;
@@ -80,6 +82,7 @@ export class MpModalDialogComponent implements OnInit {
     height : number, // percentage
     animationDuration : number
   }
+  
   constructor(
     private screenProps : ScreenPropertiesService,
     private modalService: MpModalDialogService,
@@ -121,7 +124,8 @@ export class MpModalDialogComponent implements OnInit {
       this.wrapperOpen = 'close'
       document.body.style.overflow = 'auto'
     }, this.params.animationDuration)
-    
+    console.log(this.modalContent);
+    this.modalContent.nativeElement.scrollTo(0,0)
     this.smallScreenSubscription.unsubscribe()
   }
 

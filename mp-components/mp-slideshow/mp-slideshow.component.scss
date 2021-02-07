@@ -197,5 +197,31 @@ $mp-indicator-color-soft: #2F485833;
     
 }
 
+.mp-arrow-top{
+    position: absolute; 
+    top: 10px;
+}
+
+.mp-arrow-top > svg{
+    fill: $mp-arrow-color;
+    transition: 300ms;
+}
+
+.mp-arrow-top.mp-arrow-right{
+    left: 53%;
+}
+.mp-arrow-top.mp-arrow-left{
+    right: 53%
+}
+
+.mp-arrow-top:hover{
+    svg{
+        fill: $mp-arrow-hover-color;
+
+    }
+    cursor: pointer;
+    
+}
+
 // ############# - arrows end - #################################### 
 // #################################################################
