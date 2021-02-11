@@ -64,7 +64,7 @@
     position: absolute; top: 61px;
     max-height: 0;
     background-color: $main-blue;
-    box-shadow: 0 6px 6px rgba($color: $main-blue, $alpha: 0.16), 0 6px 6px rgba($color: $main-blue, $alpha: 0.23);
+    box-shadow: 0 6px 6px rgba($color: black, $alpha: 0.16), 0 6px 6px rgba($color: black, $alpha: 0.23);
 }
 .expansion-body.small-screen{
     margin-left: 20px;

@@ -2,19 +2,19 @@
     [@openCloseBackground]="{value : wrapperOpen, params : {duration: params.animationDuration}}" (click)="close()"
 >
 </div>
-<div [ngClass]="'mp-modal-dialog-container '+isScreenClass" [ngStyle]="{'height' : params.height + '%'}"
+<div [ngClass]="'mp-modal-dialog-container '+isScreenClass" [ngStyle]="{'height' : this.currentHeight + 'px'}"
     [@openCloseContent]="{value : contentOpen, params : {touchY : touchTranslate, duration: params.animationDuration}}"
     
 >
-    <div [ngClass]="'mp-modal-header ' + isTouchClass" (touchstart) = "getTouchStart($event)" (touchmove) = "barTouchMove($event)" (touchend) = "onTouchLeave()">
-        <div *ngIf = "isTouch" class="mp-modal-top-bar" [@barTouch]="touchOnBar ? 'touch' : 'noTouch'">
-            
+    <div [ngClass]="'mp-modal-header ' + isTouchClass" >
+        <div *ngIf = "isTouch" class="mp-modal-top-bar-wrapper" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event, true)" (touchend)="onTouchEnd($event, true)">
+            <div class="mp-modal-top-bar" [@barTouch]="touchOnBar ? 'touch' : 'noTouch'"></div>
         </div>
         <div *ngIf = "!isTouch" class="mp-modal-close-wrapper" >
             <mat-icon class = "close-icon" (click) = "close()">clear</mat-icon>
         </div>
     </div>
-    <div [ngClass]="'mp-modal-content ' + isTouchClass" #mpModalContent>
+    <div [ngClass]="'mp-modal-content ' + isTouchClass" #mpModalContent  (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)" (touchend)="onTouchEnd($event)">
         <ng-content></ng-content>
     </div>
 </div>
