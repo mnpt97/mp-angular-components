@@ -146,8 +146,8 @@ export class MpModalDialogComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('on init', this.currentHeight);
-    
-    this.isTouch = this.screenProps.getIsTouch()
+    this.isTouch = window.matchMedia("(pointer: coarse)").matches
+    //this.isTouch = this.screenProps.getIsTouch()
     if(this.isTouch){
       this.isTouchClass = 'touch'
       this.currentHeight = window.innerHeight * 0.6

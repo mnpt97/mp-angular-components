@@ -20,6 +20,7 @@ import { MpMaterialModule } from './mp-material/mp-material.module'
 import { RouterModule } from '@angular/router';
 import { MpSlideshowItemDirective } from './mp-slideshow/mp-slideshow-item.directive';
 import { MpHeaderNavigationComponent } from './mp-menu-header/mp-header-navigation/mp-header-navigation.component';
+import { MpLoginDialogComponent } from './mp-login-dialog/mp-login-dialog.component';
 
 
 const MpComponents = [
@@ -33,6 +34,7 @@ const MpComponents = [
   declarations: [
     MpComponents,
     MpSlideshowItemDirective,
+    MpLoginDialogComponent,
   ],
   imports: [
     CommonModule,
