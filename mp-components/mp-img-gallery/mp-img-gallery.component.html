@@ -1,0 +1,25 @@
+<div class="mp-img-gallery-wrapper">
+    <div class="mp-img-gallery-container" #galleryContainer [ngStyle]="{'height': this.height + 'px'}" >
+        <div class="mp-imgs-container" #imgContainer [ngStyle]="{'height': this.height + 'px', 'width' : this.containerWidth +'px'}" 
+            (mouseover)="this.stopMove()" (mouseout)="this.startMove()"
+        >
+            <img *ngFor="let img of this.arrangedImages; let i = index" [ngClass]="'mp-gallery-img ' + img.type" [src]="img.src" #galleryImg
+            [ngStyle]="{'height' : img.size +'px', 'width' : img.size + 'px', 'margin' : .02 * this.height +'px'}" (click)="this.openSlideshowDialog(i)"/>
+        </div>
+        
+
+    </div>
+</div>
+
+<div class="mp-img-gallery-slideshow-wrapper" *ngIf="this.showModal">
+    <div class="mp-gallery-slideshow-close">
+        <button mat-icon-button class="mp-close-button" (click)="this.closeSlideshowDialog()"><mat-icon class="mp-close-icon">close</mat-icon></button>
+        
+    </div>
+    <mp-slideshow [slideshowOptions]="this.slideshowOptions" class="mp-gallery-slideshow">
+        <div class="mp-slide-img-wrapper" *ngFor="let img of this.slideImages; let i = index" 
+            [ngStyle]="{'background-image' : 'url('+img.src+')', 'height': '600px', 'width': this.imgWidth + '%', 'background-size' : img.zoom+'%'}" mpSlideshowItem mpPinchZoom 
+                (zoom)="this.getCurrentZoom($event, i)" >
+        </div>
+    </mp-slideshow>
+</div>

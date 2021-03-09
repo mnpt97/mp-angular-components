@@ -1,0 +1,80 @@
+@import "_app-colors";
+
+.mp-img-gallery-wrapper{
+    width: 100%;
+
+}
+
+.mp-img-gallery-container{
+    overflow-x: scroll 
+}
+.mp-imgs-container{
+    display: flex; justify-content: flex-start;
+    flex-direction: column; flex-wrap: wrap;
+    overflow-x: scroll; 
+   
+    
+}
+
+.mp-img-column{
+    
+}
+
+.mp-gallery-img{
+    object-fit: cover; display: block; 
+}
+
+.mp-gallery-img:hover{
+    cursor: pointer;
+}
+.mp-img-gallery-slideshow-wrapper{
+    position: fixed; top: 0; left: 0; padding-top: 70px;
+    background-color: rgba($color: $main-white, $alpha: 0.7);
+    height: 100vh; width: 100vw; overflow-x: hidden;
+    backdrop-filter: blur(20px);
+    
+}
+
+.mp-gallery-slideshow-close{
+    display: flex; justify-content: flex-end; padding: 5px 10px
+}
+
+.mp-slide-img{
+    width: 400px; display: block
+}
+
+.mp-gallery-slideshow{
+    width: 100%
+}
+.mp-slide-img-wrapper{
+    background-repeat: no-repeat;
+    
+    background-position: center;
+}
+
+@media (pointer : fine){
+    $button-size : 32px;
+    .mp-close-button{
+        height: $button-size; width: $button-size;
+    }
+
+    .mp-close-icon{
+        color : rgba($color: $main-blue, $alpha: 0.5);
+        height: $button-size; width: $button-size; line-height: $button-size !important; font-size: $button-size;
+    }
+    .mp-close-icon:hover{
+        color : $main-blue
+    }
+}
+
+@media (pointer : coarse){
+    $button-size : 50px;
+    .mp-close-button{
+        height: $button-size; width: $button-size;
+    }
+
+    .mp-close-icon{
+        color: $main-blue;
+        height: $button-size; width: $button-size; line-height: $button-size !important; font-size: $button-size;
+    }
+}

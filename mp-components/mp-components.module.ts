@@ -21,13 +21,15 @@ import { RouterModule } from '@angular/router';
 import { MpSlideshowItemDirective } from './mp-slideshow/mp-slideshow-item.directive';
 import { MpHeaderNavigationComponent } from './mp-menu-header/mp-header-navigation/mp-header-navigation.component';
 import { MpLoginDialogComponent } from './mp-login-dialog/mp-login-dialog.component';
+import { MpImgGalleryComponent } from './mp-img-gallery/mp-img-gallery.component';
+import { MpPinchZoomDirective } from './directives/mp-pinch-zoom.directive';
 
 
 const MpComponents = [
   MpHomeComponent, MpMenuHeaderComponent,// MpRouterContentComponent, 
   MpModalDialogComponent, MpAdminEditComponent, MpAdminComponentWrapperComponent, 
   MpSlideshowComponent, MpParallaxItemComponent,
-  MpScrollViewTopImageComponent, MpHeaderNavigationComponent
+  MpScrollViewTopImageComponent, MpHeaderNavigationComponent, MpImgGalleryComponent
 ]
 
 @NgModule({
@@ -35,6 +37,7 @@ const MpComponents = [
     MpComponents,
     MpSlideshowItemDirective,
     MpLoginDialogComponent,
+    MpPinchZoomDirective,
   ],
   imports: [
     CommonModule,

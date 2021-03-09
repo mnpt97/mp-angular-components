@@ -12,7 +12,7 @@ $mp-indicator-color-soft: #2F485833;
    width : 100%;
     overflow: hidden;
     //display: block;
-    padding-top: 20px;
+    padding-top: 30px;
     position: relative;
 }
 
@@ -72,6 +72,7 @@ $mp-indicator-color-soft: #2F485833;
         .mp-round-inner-item{
             position: absolute; top: 2px; left: 2px; 
             width: 12px; height: 12px; border-radius: 6px;
+            background-color: $mp-indicator-color;
             
 
         }
@@ -199,7 +200,7 @@ $mp-indicator-color-soft: #2F485833;
 
 .mp-arrow-top{
     position: absolute; 
-    top: 10px;
+    top: 0px;
 }
 
 .mp-arrow-top > svg{

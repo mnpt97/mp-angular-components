@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 
 import { Subject, BehaviorSubject, Observable} from 'rxjs'
 
+const SCREEN_SIZES = {
+   
+}
+
 @Injectable({
   providedIn: 'any'
 })
@@ -15,6 +19,8 @@ export class ScreenPropertiesService {
   private screenOrientation : BehaviorSubject<string> = new BehaviorSubject('landscape')
   //private screenSize : BehaviorSubject<{width: number, height: number}> = new BehaviorSubject({width: 0, height: 0})
   private screenSize :  {width: number, height: number}
+
+  public deviceWidth : BehaviorSubject<string> = new BehaviorSubject(null);
 
   private scrollTop : BehaviorSubject<number> = new BehaviorSubject(0);
   private maxHeaderHeight : number = 200;
@@ -86,9 +92,25 @@ export class ScreenPropertiesService {
 
     public checkWidth() {
         let width = window.innerWidth;
+        
+        if(width >= 1920){
+            this.deviceWidth.next('XXL')
+        }else if(width >= 1366){
+            this.deviceWidth.next('XL')
+        }else if(width >= 1000){
+            this.deviceWidth.next('L')
+        }else if(width >= 660){
+            this.deviceWidth.next('M')
+        }else if(width >= 360){
+            this.deviceWidth.next('S')
+        }else{
+            this.deviceWidth.next('XS')
+        }
+
         if (width <= 1000) {
             this.screenWidth = 'sm';
             this._isSmallScreen = true;
+
             
             this.onMobileChange(true);
         } else {

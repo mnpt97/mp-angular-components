@@ -50,8 +50,8 @@
     
     <div [ngClass]="'mp-round-indicator ' +this.indicatorClass" *ngIf="slideshowOptions.slideVisuals.indicators === 'ROUND'">
         <div class="mp-round-item" [ngClass]="indicatorClass" *ngFor="let indi of items; index as i" >
-            <div class="mp-round-inner-item"
-                [@moveRoundIndicator]="{value : this.currentPos, params : {bColor : this.setRoundIndicatorOpacity(i)}}"
+            <div class="mp-round-inner-item" *ngIf="this.currentPos === i"
+                
             >
                 
             </div>

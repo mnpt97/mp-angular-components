@@ -74,14 +74,15 @@ export class MpSlideshowComponent implements OnInit {
   @Input() slideshowOptions : MpSlideshowOptions = {
     slideType : "END",
     slideVisuals : {
-      slidePadding : 25,
-      animationDuration : 400,
-      indicators : 'LINE2',
+      slidePadding : 10,
+      animationDuration : 300,
+      indicators : 'ROUND',
       
       arrows : "ARROW1",
       arrowPosition : "TOP"
 
     },
+    initialIndex : 0,
     showArrowsOnMobile : true,
     showSlideableOnScroll : true
   
@@ -166,6 +167,10 @@ export class MpSlideshowComponent implements OnInit {
     this.setIndicatorProperties();
     this.slideScrollTop = this.outerElem.nativeElement.offsetTop;
     console.log(this.items);
+    if(this.slideshowOptions.initialIndex !== 0 && this.slideshowOptions.initialIndex < this.items.length){
+      this.currentPos = this.slideshowOptions.initialIndex;
+      this.moveSlides()
+    }
     
   }
 
@@ -190,28 +195,33 @@ export class MpSlideshowComponent implements OnInit {
   // touch specific functions 
 
   public touchStart(evt : TouchEvent) :void{
-    this.startTouchPosY= evt.touches[0].clientY
-    this.deltaTouchY = 0;
-    this.touched = true;
-    this.startTouchPosX = evt.touches[0].clientX
-    this.touchPosX = this.startTouchPosX
+    if(evt.touches[1] === undefined){
+      this.startTouchPosY= evt.touches[0].clientY
+      this.deltaTouchY = 0;
+      this.touched = true;
+      this.startTouchPosX = evt.touches[0].clientX
+      this.touchPosX = this.startTouchPosX
+    }
     //document.body.style.overflow = "hidden"
   }
 
   public touchMove(evt : TouchEvent) : void {
-    this.deltaTouchY += evt.touches[0].clientY -  this.startTouchPosY;
+    if(evt.touches[1] === undefined){
+      this.deltaTouchY += evt.touches[0].clientY -  this.startTouchPosY;
 
-    if(Math.abs(this.deltaTouchY) > 30){
-      
-    }
-    if(!(this.currentPos >= this.items.length -1 && (evt.touches[0].clientX - this.touchPosX) < 0)){
-      this.slideWhiletouch(evt.touches[0].clientX - this.touchPosX)
-      this.touchPosX = evt.touches[0].clientX;
+      if(Math.abs(this.deltaTouchY) > 30){
+        
+      }
+      if(!(this.currentPos >= this.items.length -1 && (evt.touches[0].clientX - this.touchPosX) < 0)){
+        this.slideWhiletouch(evt.touches[0].clientX - this.touchPosX)
+        this.touchPosX = evt.touches[0].clientX;
+      }
     }
   }
 
   public touchEnd() : void {
     //document.body.style.overflow = "auto"
+    
     let delta = this.touchPosX - this.startTouchPosX;
     if(delta > 0){
       if(Math.abs(delta) > this.slideItemWidth/3 && this.currentPos < this.items.length && this.currentPos > 0){
@@ -224,6 +234,7 @@ export class MpSlideshowComponent implements OnInit {
       }
     }
     this.moveSlides()
+    
   }
 
 
@@ -400,7 +411,8 @@ export interface MpSlideshowOptions{
     animationDuration ? : number,
     arrows ? : "ARROW1" | "ARROW2" | "CHEVRON",
     arrowPosition ? : "TOP" | "MIDDLE" | "BOTTOM" | "SIDEPANEL",
-  }
+  },
+  initialIndex : number,
   slideType ? : "INFINITE" | "END"
   sliderHeight ? : number,
   slidesToShow ? : number,
