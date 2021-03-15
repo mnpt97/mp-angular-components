@@ -129,7 +129,6 @@ export class MpMenuHeaderComponent  implements OnInit {
       this.isSmallScreen = status
       this.isSmallScreen ? this.screenClass = 'mobile' : this.screenClass = 'desktop'
       this.isSmallScreen ? this.screenSizeClass = 'small-screen' : this.screenSizeClass = 'large-screen'
-      console.log(this.isSmallScreen, this.screenClass);
       
     })
     this.isTouch = this.responsive.getIsTouch() 

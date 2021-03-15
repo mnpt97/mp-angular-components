@@ -23,6 +23,7 @@ import { MpHeaderNavigationComponent } from './mp-menu-header/mp-header-navigati
 import { MpLoginDialogComponent } from './mp-login-dialog/mp-login-dialog.component';
 import { MpImgGalleryComponent } from './mp-img-gallery/mp-img-gallery.component';
 import { MpPinchZoomDirective } from './directives/mp-pinch-zoom.directive';
+import { MpWysiwygComponent } from './mp-wysiwyg/mp-wysiwyg.component';
 
 
 const MpComponents = [
@@ -38,6 +39,7 @@ const MpComponents = [
     MpSlideshowItemDirective,
     MpLoginDialogComponent,
     MpPinchZoomDirective,
+    MpWysiwygComponent,
   ],
   imports: [
     CommonModule,

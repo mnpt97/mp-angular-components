@@ -29,10 +29,12 @@ export class MpPinchZoomDirective {
     
   }
   @HostListener('touchmove', ['$event']) pinchMove(evt : TouchEvent){
-    let newDistance : number = this.getDistance(evt.touches[0].clientX, evt.touches[1].clientX,
-      evt.touches[0].clientY, evt.touches[1].clientY)
-    this.lastDistance = newDistance
-    this.zoom.emit({pinch : 'pinch', zoom : (newDistance / this.touches.distance) * 100 + this.lastZoom - 100})
+    if(evt.touches[1] !== undefined){
+      let newDistance : number = this.getDistance(evt.touches[0].clientX, evt.touches[1].clientX,
+        evt.touches[0].clientY, evt.touches[1].clientY)
+      this.lastDistance = newDistance
+      this.zoom.emit({pinch : 'pinch', zoom : (newDistance / this.touches.distance) * 100 + this.lastZoom - 100})
+    }
     
   }
 

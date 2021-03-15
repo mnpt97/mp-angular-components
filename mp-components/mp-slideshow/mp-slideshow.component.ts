@@ -136,7 +136,6 @@ export class MpSlideshowComponent implements OnInit {
 
 
   @HostListener('window:resize', ['$event']) onResize(evt : Event) : void {
-    console.log('resize');
     this.setSlideshowProperties()
     
   }
@@ -166,7 +165,6 @@ export class MpSlideshowComponent implements OnInit {
     this.setArrowProperties();
     this.setIndicatorProperties();
     this.slideScrollTop = this.outerElem.nativeElement.offsetTop;
-    console.log(this.items);
     if(this.slideshowOptions.initialIndex !== 0 && this.slideshowOptions.initialIndex < this.items.length){
       this.currentPos = this.slideshowOptions.initialIndex;
       this.moveSlides()
@@ -175,15 +173,12 @@ export class MpSlideshowComponent implements OnInit {
   }
 
   ngAfterContentInit(){
-    console.log(this.items);
     
   }
 
   ngOnChanges(changes : SimpleChanges){
-    console.log(changes);
     
     if(changes.items){
-      console.log('changes');
       this.setSlideshowProperties()
       
     }
@@ -228,7 +223,6 @@ export class MpSlideshowComponent implements OnInit {
         this.currentPos --
       }
     }else{
-      console.log('left', Math.abs(delta) > this.slideItemWidth/2 )
       if(Math.abs(delta) > this.slideItemWidth/3 && this.currentPos >= 0 && this.currentPos < this.items.length-1){
         this.currentPos ++       
       }
@@ -311,12 +305,10 @@ export class MpSlideshowComponent implements OnInit {
   //slideshow properties arrangement
 
   private setSlideshowProperties(){
-    console.log(this.outerElem.nativeElement.offsetWidth);
     
     this.slideItemWidth = this.outerElem.nativeElement.offsetWidth
     this.arrangeItems()
     this.itemsArranged = true
-    console.log(this.items, this.slideItemWidth);
     
     this.slideWidth = (this.items.length) * this.slideItemWidth;
     
@@ -329,7 +321,6 @@ export class MpSlideshowComponent implements OnInit {
     let currentLeft : number = 0;
     
     this.items.forEach((it, index : number) =>{
-      console.log(it);
       
       this.renderer.setStyle(it.elem.nativeElement, 'margin', this.slideshowOptions.slideVisuals.slidePadding + 'px')
       this.renderer.setStyle(it.elem.nativeElement, 'width', this.slideItemWidth - (2*this.slideshowOptions.slideVisuals.slidePadding) + 'px')
@@ -385,7 +376,6 @@ export class MpSlideshowComponent implements OnInit {
 
   setRoundIndicatorOpacity(index : number) : string {
     if(index === this.currentPos){
-      console.log(index);
       
       return "black";
     }

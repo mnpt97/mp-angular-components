@@ -150,7 +150,7 @@ export class MpModalDialogComponent implements OnInit {
     //this.isTouch = this.screenProps.getIsTouch()
     if(this.isTouch){
       this.isTouchClass = 'touch'
-      this.currentHeight = window.innerHeight * 0.6
+      this.currentHeight = window.innerHeight * 0.9
     }else if(!this.isTouch){
       this.isTouchClass = 'mouse'
       this.currentHeight = window.innerHeight * 0.9
@@ -165,7 +165,7 @@ export class MpModalDialogComponent implements OnInit {
     console.log(this.modalContent.nativeElement.scrollTop, 'view init');
     
     if(this.isTouch){
-      this.modalContent.nativeElement.style.overflowY = 'hidden'
+      //this.modalContent.nativeElement.style.overflowY = 'hidden'
     }
   }
 
@@ -174,8 +174,8 @@ export class MpModalDialogComponent implements OnInit {
     this.wrapperOpen = 'open'
     
     if(this.isTouch){
-      this.currentHeight = window.innerHeight * 0.6
-      this.modalContent.nativeElement.style.overflowY = 'hidden'
+      this.currentHeight = window.innerHeight * 0.9
+      //this.modalContent.nativeElement.style.overflowY = 'hidden'
     } 
     console.log(this.currentHeight);
     

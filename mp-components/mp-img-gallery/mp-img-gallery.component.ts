@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, ContentChildren, ElementRef, Input, OnInit, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 import { ScreenPropertiesService } from '../mp-services/screen-properties.service';
 import { MpSlideshowOptions } from '../mp-slideshow/mp-slideshow.component';
@@ -5,7 +6,19 @@ import { MpSlideshowOptions } from '../mp-slideshow/mp-slideshow.component';
 @Component({
   selector: 'mp-img-gallery',
   templateUrl: './mp-img-gallery.component.html',
-  styleUrls: ['./mp-img-gallery.component.scss']
+  styleUrls: ['./mp-img-gallery.component.scss'],
+  animations : [
+    trigger('showModal', [
+      transition(':enter', [
+        style({'opacity' : '0', 'transform' : 'scale(0)'}), 
+        animate('400ms', style({'opacity' : '1' , 'transform' : 'scale(1)'}))
+      ]), 
+      transition(':leave', [
+        style({'opacity' : '1', 'transform' : 'scale(1)'}), 
+        animate('400ms', style({'opacity' : '0' , 'transform' : 'scale(0)'}))
+      ])
+    ]), 
+  ]
 })
 export class MpImgGalleryComponent implements OnInit {
 
@@ -21,7 +34,7 @@ export class MpImgGalleryComponent implements OnInit {
   @Input() slideshowOptions : MpSlideshowOptions = {
     slideType : "END",
     slideVisuals : {
-      slidePadding : 0,
+      slidePadding : 10,
       animationDuration : 400,
       indicators : 'LINE2',
       
@@ -57,18 +70,18 @@ export class MpImgGalleryComponent implements OnInit {
   ngOnInit(): void {
     
     if(this.imgSources !== null){
+      let zoom : number = 100
+      if(window.innerWidth > 800){
+        zoom = 80
+      }
       this.arrangeImages()
       console.log(this.arrangedImages);
       this.slideImages = this.imgSources.map(img => {
-        return {src : img, zoom : 100}
+        return {src : img, zoom : zoom}
       })
       
     }
-    if(window.innerWidth > 800){
-      console.log('large');
-      
-      this.imgWidth = 80;
-    }
+    
   }
 
   public arrangeImages(){

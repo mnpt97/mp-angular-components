@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<div class="mp-img-gallery-slideshow-wrapper" *ngIf="this.showModal">
+<div class="mp-img-gallery-slideshow-wrapper" *ngIf="this.showModal" @showModal>
     <div class="mp-gallery-slideshow-close">
         <button mat-icon-button class="mp-close-button" (click)="this.closeSlideshowDialog()"><mat-icon class="mp-close-icon">close</mat-icon></button>
         

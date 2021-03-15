@@ -20,7 +20,7 @@ export class ScreenPropertiesService {
   //private screenSize : BehaviorSubject<{width: number, height: number}> = new BehaviorSubject({width: 0, height: 0})
   private screenSize :  {width: number, height: number}
 
-  public deviceWidth : BehaviorSubject<string> = new BehaviorSubject(null);
+  public deviceWidth : BehaviorSubject<{type : string}>
 
   private scrollTop : BehaviorSubject<number> = new BehaviorSubject(0);
   private maxHeaderHeight : number = 200;
@@ -31,9 +31,11 @@ export class ScreenPropertiesService {
   private headerHeight : BehaviorSubject<number> = new BehaviorSubject(this.maxHeaderHeight)
 
     constructor() {
+        this.deviceWidth = new BehaviorSubject({type : 'S'});
         this.checkWidth();
         window.addEventListener('resize', () =>{
-          this.checkWidth()
+            
+            this.checkWidth()
         })
         window.addEventListener('scroll', ()=>{
             
@@ -91,21 +93,22 @@ export class ScreenPropertiesService {
     }
 
     public checkWidth() {
-        let width = window.innerWidth;
+        let width = window.innerWidth;        
         
         if(width >= 1920){
-            this.deviceWidth.next('XXL')
+            this.deviceWidth.next({type : 'XXL'})
         }else if(width >= 1366){
-            this.deviceWidth.next('XL')
+            this.deviceWidth.next({type : 'XL'})
         }else if(width >= 1000){
-            this.deviceWidth.next('L')
+            this.deviceWidth.next({type : 'L'})
         }else if(width >= 660){
-            this.deviceWidth.next('M')
+            this.deviceWidth.next({type : 'M'})
         }else if(width >= 360){
-            this.deviceWidth.next('S')
+            this.deviceWidth.next({type : 'S'})
         }else{
-            this.deviceWidth.next('XS')
-        }
+            this.deviceWidth.next({type : 'XS'})
+        }        
+        
 
         if (width <= 1000) {
             this.screenWidth = 'sm';
