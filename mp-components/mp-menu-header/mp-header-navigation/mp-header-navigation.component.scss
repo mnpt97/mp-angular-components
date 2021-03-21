@@ -4,12 +4,12 @@
 
 
 .menu-link-wrapper{
-    display: flex; justify-content: left; color: $main-blue; 
+    display: flex; justify-content: flex-end; color: $main-blue; 
     position: relative; flex-direction: column; 
 }
 
 .menu-link-body{
-    display: flex; margin:  0; justify-content: flex-start;
+    display: flex; margin:  0; justify-content: flex-end;
     
 }
 
@@ -17,6 +17,7 @@
     padding: 15px 20px; font-size: 1.2rem; 
 }
 .menu-link-body.small-screen{
+    text-align: right;
     padding: 15px 5vw; font-size: 1.7rem; width: 60vw; justify-content: space-between;
 }
 
@@ -24,7 +25,7 @@
     display: flex; align-items: center; margin: 0 40px 0 0
 }
 .navigation-wrapper.small-screen{
-    display: flex; align-items: flex-start; margin: 0 0 0 40px; flex-direction: column; 
+    display: flex; align-items: flex-start; margin: 0 0 0 3%; flex-direction: column; 
 }
 
 .expand-icon-bar{
@@ -72,7 +73,7 @@
 
 .menu-link{
     border-bottom: 2px solid transparent;
-    transition: border-bottom 300ms; min-width: 70px
+    transition: border-bottom 300ms; min-width: 70px; font-weight: bold;
 }
 .menu-link.large-screen{
     color: $main-white
@@ -86,11 +87,11 @@
     font-size: 1.2rem
 }
 .menu-link.active-nav{
-    font-weight: bold;
+    font-weight: bold; color: $main-black;
 }
 
 .menu-link:hover{
-    cursor: pointer; font-weight: bold;
+    cursor: pointer; font-weight: bold; color: $main-black;
 
 
 

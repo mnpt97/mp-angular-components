@@ -24,6 +24,7 @@ import { MpLoginDialogComponent } from './mp-login-dialog/mp-login-dialog.compon
 import { MpImgGalleryComponent } from './mp-img-gallery/mp-img-gallery.component';
 import { MpPinchZoomDirective } from './directives/mp-pinch-zoom.directive';
 import { MpWysiwygComponent } from './mp-wysiwyg/mp-wysiwyg.component';
+import { MpFroalaFireUploadEditorComponent } from './firebase-admin/mp-froala-fire-upload-editor/mp-froala-fire-upload-editor.component';
 
 
 const MpComponents = [
@@ -40,6 +41,7 @@ const MpComponents = [
     MpLoginDialogComponent,
     MpPinchZoomDirective,
     MpWysiwygComponent,
+    MpFroalaFireUploadEditorComponent,
   ],
   imports: [
     CommonModule,

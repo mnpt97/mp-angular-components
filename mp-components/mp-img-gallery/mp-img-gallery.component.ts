@@ -26,7 +26,7 @@ export class MpImgGalleryComponent implements OnInit {
   @ViewChild('imgContainer') containerElement : ElementRef;
   @ViewChild('galleryContainer') galleryElement : ElementRef;
   @Input() imgSources : string[] = null;
-  @Input() height : number = 500
+  @Input() height : number = window.innerHeight - 80
   @Input() properties : {
     
   }
@@ -48,7 +48,7 @@ export class MpImgGalleryComponent implements OnInit {
   
   }
 
-
+  public slideshowHeight : number;
   public slideImages : {src : string, zoom : number}[] = null;
 
   public containerWidth : number = 0;
@@ -165,6 +165,7 @@ export class MpImgGalleryComponent implements OnInit {
 
   public openSlideshowDialog(index : number){
     this.slideshowOptions.initialIndex=index
+    window.scrollTo(0, window.scrollY + 1)
     setTimeout(() => {
       this.stopMove()
     }, 300);

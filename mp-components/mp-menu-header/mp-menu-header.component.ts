@@ -14,7 +14,7 @@ import { trigger, state, style, animate, transition, group} from '@angular/anima
       state('topX', style({
         transform: 'rotate(45deg)', 
         transformOrigin: 'left',
-        margin: '6px'
+        margin: '10px'
       })),
       state('hide', style({
         opacity: 0
@@ -22,7 +22,7 @@ import { trigger, state, style, animate, transition, group} from '@angular/anima
       state('bottomX', style({
         transform: 'rotate(-45deg)',
         transformOrigin: 'left',
-        margin: '6px'
+        margin: '10px'
       })),
       transition('* => *', [
         animate('0.2s')
@@ -36,17 +36,17 @@ import { trigger, state, style, animate, transition, group} from '@angular/anima
       state('close', style({
 
       })), 
-      transition('open <=> close', animate('350ms'))
+      transition('open <=> close', animate('500ms'))
     ]),
     
     trigger('showHeader', [
       state('hide', style({
-        'transform' : 'translateY(-100%'
+        'transform' : 'translateY(-220%)'
       })),
       state('show', style({
         'transform' : 'translateY(0)'
       })), 
-      transition('hide<=>show', animate('250ms'))
+      transition('hide<=>show', animate('350ms'))
     ])
 
   ],
@@ -128,7 +128,7 @@ export class MpMenuHeaderComponent  implements OnInit {
     this.responsive.getSmallScreen().subscribe((status) =>{
       this.isSmallScreen = status
       this.isSmallScreen ? this.screenClass = 'mobile' : this.screenClass = 'desktop'
-      this.isSmallScreen ? this.screenSizeClass = 'small-screen' : this.screenSizeClass = 'large-screen'
+      this.isSmallScreen ? this.screenSizeClass = 'small-screen' : this.screenSizeClass = 'small-screen'
       
     })
     this.isTouch = this.responsive.getIsTouch() 

@@ -2,11 +2,12 @@
 
 .mp-img-gallery-wrapper{
     width: 100%;
+    overflow-x: hidden;
 
 }
 
 .mp-img-gallery-container{
-    overflow-x: scroll 
+    overflow-x: hidden
 }
 .mp-imgs-container{
     display: flex; justify-content: flex-start;
@@ -28,7 +29,7 @@
     cursor: pointer;
 }
 .mp-img-gallery-slideshow-wrapper{
-    position: fixed; top: 0; left: 0; padding-top: 70px;
+    position: fixed; top: 0; left: 0; 
     background-color: rgba($color: $main-white, $alpha: 0.7);
     height: 100vh; width: 100vw; overflow-x: hidden;
     backdrop-filter: blur(20px);
@@ -36,7 +37,7 @@
 }
 
 .mp-gallery-slideshow-close{
-    display: flex; justify-content: flex-end; padding: 5px 10px
+    display: flex; justify-content: flex-end; height: 10vh
 }
 
 .mp-slide-img{
@@ -53,7 +54,7 @@
 }
 
 @media (pointer : fine){
-    $button-size : 32px;
+    $button-size : 42px;
     .mp-close-button{
         height: $button-size; width: $button-size;
     }

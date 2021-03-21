@@ -120,6 +120,8 @@ export class MpSlideshowComponent implements OnInit {
   private startTouchPosX : number = 0;
   private startTouchPosY : number = 0;
   private deltaTouchY : number = 0;
+  private touchSpeed : number = 0;
+  private touchYOld : number = 0;
   private touched : boolean = false;
 
   // Slide values
@@ -209,8 +211,11 @@ export class MpSlideshowComponent implements OnInit {
       }
       if(!(this.currentPos >= this.items.length -1 && (evt.touches[0].clientX - this.touchPosX) < 0)){
         this.slideWhiletouch(evt.touches[0].clientX - this.touchPosX)
+        
         this.touchPosX = evt.touches[0].clientX;
+        
       }
+      
     }
   }
 
@@ -219,11 +224,11 @@ export class MpSlideshowComponent implements OnInit {
     
     let delta = this.touchPosX - this.startTouchPosX;
     if(delta > 0){
-      if(Math.abs(delta) > this.slideItemWidth/3 && this.currentPos < this.items.length && this.currentPos > 0){
+      if(Math.abs(delta) > 40 && this.currentPos < this.items.length && this.currentPos > 0){
         this.currentPos --
       }
     }else{
-      if(Math.abs(delta) > this.slideItemWidth/3 && this.currentPos >= 0 && this.currentPos < this.items.length-1){
+      if(Math.abs(delta) > 40 && this.currentPos >= 0 && this.currentPos < this.items.length-1){
         this.currentPos ++       
       }
     }

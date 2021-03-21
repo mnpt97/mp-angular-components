@@ -1,20 +1,22 @@
 <div class="menu-header-wrapper" [ngStyle] = "{'height' : headerHeight+'px'}"
     [@showHeader]="showHeader ? 'show' : 'hide'"
 >
+    
+    
 
-    <img class="menu-logo" src="./assets/vektor/tc_logo_new_w.svg"/>
-
-    <div class="spacer"></div>
-
-    <div  class="menu-icon" *ngIf = "isSmallScreen">
+    <div  class="menu-icon" >
         <div (click)="onClickHambuger()" class="btn">
             <div class="icon-bar" [@hamburguerX]="menuOpenClose ? 'topX' : 'hamburguer'"></div>
             <div class="icon-bar" [@hamburguerX]="menuOpenClose ? 'hide' : 'hamburguer'"></div>
             <div class="icon-bar" [@hamburguerX]="menuOpenClose ? 'bottomX' : 'hamburguer'"></div>
         </div>
     </div>
+
+    <div class="spacer"></div>
+
+    <img class="menu-logo" src="./assets/vektor/tc_logo_3_bg_blue2.svg"/>
     
-    <mp-header-navigation *ngIf="!this.isSmallScreen" [screenSizeClass]="this.screenSizeClass" [screenTypeClass]="this.screenTypeClass" [navItems]="this.navItems"></mp-header-navigation>
+    <!-- <mp-header-navigation *ngIf="!this.isSmallScreen" [screenSizeClass]="this.screenSizeClass" [screenTypeClass]="this.screenTypeClass" [navItems]="this.navItems"></mp-header-navigation> -->
     
 
 
@@ -22,7 +24,7 @@
     
 </div>
 
-<div  class="menu-sidenav" *ngIf = "isSmallScreen"
+<div  class="menu-sidenav" 
     [@menuTrigger]="menuOpenClose ? 'open' : 'close'"    
 >
     
